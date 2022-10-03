@@ -1,0 +1,14 @@
+.page {
+  max-width: 880px;
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  margin: 0 auto;
+  background-color: #00014f;
+  color: #00ff1f;
+}
+
+* .page {
+  transition: all .2s linear;
+}
