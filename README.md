@@ -18,4 +18,4 @@ ______
 ------
 ![GitHub repo size](https://img.shields.io/github/repo-size/uzornakovre/snake-game?color=yellow&style=flat-square) ![GitHub last commit](https://img.shields.io/github/last-commit/uzornakovre/snake-game?color=blue&style=flat-square) ![GitHub Repo stars](https://img.shields.io/github/stars/uzornakovre/snake-game?color=pink&style=flat-square)  
 
-[![Скриншот страницы](https://i.ibb.co/xhYGHgQ/2022-10-03-18-54-17.png)](https://uzornakovre.github.io/snake-game/)
+[![Скриншот страницы](https://i.ibb.co/tBzcX25/2022-10-03-18-54-17.png)](https://uzornakovre.github.io/snake-game/)

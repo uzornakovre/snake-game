@@ -38,6 +38,7 @@ let dir = '';
 
 function changeDirection(evt) {
   tip.textContent = 'Погнали!';
+  evt.preventDefault();
   if (evt.key === 'ArrowUp' && dir != 'down') {
     dir = 'up';
   } else if (evt.key === 'ArrowRight' && dir != 'left') {
@@ -100,12 +101,16 @@ function drawGame() {
 function failGame() {
   clearInterval(game);
   document.removeEventListener('keydown', changeDirection);
-  tip.textContent = 'Вы проиграли!'
+  tip.textContent = 'Вы проиграли! Нажмите ENTER, чтобы начать заново.'
   page.setAttribute('style', 'background-color: #f00;');
+  document.addEventListener('keydown', evt => {
+    if (evt.key === 'Enter') {
+      location.reload();
+    }
+  });
 }
 
 document.addEventListener('keydown', changeDirection);
-
 
 let speed = 150;
 let game = setInterval(drawGame, speed);
