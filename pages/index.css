@@ -1,4 +1,9 @@
 @import url('../vendor/normalize.css');
 @import url('../vendor/fonts.css');
 @import url('../blocks/page/page.css');
+@import url('../blocks/header/header.css');
+@import url('../blocks/header/__title/header__title.css');
 @import url('../blocks/game/game.css');
+@import url('../blocks/game/__tip/game__tip.css');
+@import url('../blocks/game/__score/game__score.css');
+@import url('../blocks/game/__field/game__field.css');

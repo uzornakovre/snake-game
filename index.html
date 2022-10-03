@@ -7,7 +7,17 @@
   <link rel="stylesheet" type="text/css" href="./pages/index.css">
 </head>
 <body class="page">
-  <canvas class="game" width="608px" height="608px"></canvas>
+  <header class="header">
+    <h1 class="header__title">Игра &laquo;Змейка&raquo;</h1>
+  </header>
+  <section class="game" aria-label="Игровое поле">
+    <p class="game__tip">Нажми любую стрелку на клавиатуре, чтобы начать!</p>
+    <p class="game__score">Уровень: 0</span></p>
+    <canvas class="game__field" width="608px" height="608px"></canvas>
+  </section>
+  <footer class="footer">
+    <p class="footer__copyright">&copy; Константин Филяев, 2022</p>
+  </footer>
   <script src="./scripts/script.js"></script>
 </body>
 </html>

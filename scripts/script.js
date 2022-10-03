@@ -1,30 +1,34 @@
 const page = document.querySelector('.page');
-const canvas = page.querySelector('.game');
+const tip = page.querySelector('.game__tip');
+const score = page.querySelector('.game__score');
+const canvas = page.querySelector('.game__field');
 const ctx = canvas.getContext('2d');
 
 const ground = new Image();
-ground.src = './images/ground.png';
+ground.src = './images/pink_ground.png';
+
+const background = 'pink';
 
 const food = new Image();
 food.src = './images/food.png';
 
-const box = 32;
+const box = 16;
 
-let score = 0;
+let scoreCounter = 0;
 
 const foodSpawn = {};
 
 function spawnFood() {
-  foodSpawn.x = Math.floor(Math.random() * 17 + 1) * 32;
-  foodSpawn.y = Math.floor(Math.random() * 15 + 3) * 32;
+  foodSpawn.x = Math.floor(Math.random() * 36) * 16;
+  foodSpawn.y = Math.floor(Math.random() * 36) * 16;
 }
 
 spawnFood();
 
 let snake = [];
 snake[0] = {
-  x: 9 * box,
-  y: 10 * box,
+  x: 18 * box,
+  y: 18 * box,
 }
 
 let snakeX = snake[0].x;
@@ -33,6 +37,7 @@ let snakeY = snake[0].y;;
 let dir = '';
 
 function changeDirection(evt) {
+  tip.textContent = 'Погнали!';
   if (evt.key === 'ArrowUp' && dir != 'down') {
     dir = 'up';
   } else if (evt.key === 'ArrowRight' && dir != 'left') {
@@ -57,22 +62,23 @@ function drawGame() {
   ctx.drawImage(food, foodSpawn.x, foodSpawn.y);
 
   for (let i = 0; i < snake.length; i++) {
-    ctx.fillStyle = i === 0 ? '#00f' : '#aac';
+    ctx.fillStyle = i === 0 ? '#005500' : '#008800';
     ctx.fillRect(snake[i].x, snake[i].y, box, box);
   }
 
-  ctx.fillStyle = '#fff';
-  ctx.font = '40px Inter';
-  ctx.fillText(score, box * 2.5, box * 1.5);
-
   if (snakeX === foodSpawn.x && snakeY === foodSpawn.y) {
-    score ++;
+    scoreCounter ++;
+    speed -= 3;
     spawnFood();
+    clearInterval(game);
+    game = setInterval(drawGame, speed);
   } else {
       snake.pop();
   }
 
-  if (snakeX < box || snakeX > box * 17 || snakeY < box * 3 || snakeY > box * 17) {
+  score.textContent = 'Уровень: ' + scoreCounter;
+
+  if (snakeX < 0 || snakeX > box * 37 || snakeY < 0 || snakeY > box * 37) {
     failGame();
   }
 
@@ -89,14 +95,24 @@ function drawGame() {
   eatTale(snakeHead, snake);
 
   snake.unshift(snakeHead);
-
 }
 
 function failGame() {
   clearInterval(game);
+  document.removeEventListener('keydown', changeDirection);
+  tip.textContent = 'Вы проиграли!'
   page.setAttribute('style', 'background-color: #f00;');
 }
 
 document.addEventListener('keydown', changeDirection);
 
-let game = setInterval(drawGame, 200);
+
+let speed = 150;
+let game = setInterval(drawGame, speed);
+
+
+
+
+
+
+
