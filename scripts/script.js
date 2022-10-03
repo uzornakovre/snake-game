@@ -37,15 +37,10 @@ let dir = '';
 function changeDirection(evt) {
   tip.textContent = 'Погнали!';
   evt.preventDefault();
-  if (evt.key === 'ArrowUp' && dir != 'down') {
-    dir = 'up';
-  } else if (evt.key === 'ArrowRight' && dir != 'left') {
-    dir = 'right';
-  } else if (evt.key === 'ArrowDown' && dir != 'up') {
-    dir = 'down';
-  } else if (evt.key === 'ArrowLeft' && dir != 'right') {
-    dir = 'left';
-  }
+  if (evt.key === 'ArrowUp' && dir != 'down') dir = 'up';
+  if (evt.key === 'ArrowRight' && dir != 'left') dir = 'right';
+  if (evt.key === 'ArrowDown' && dir != 'up') dir = 'down';
+  if (evt.key === 'ArrowLeft' && dir != 'right') dir = 'left';
 }
 
 function eatTale(head, snakeBody) {
@@ -102,9 +97,7 @@ function failGame() {
   tip.textContent = 'Вы проиграли! Нажмите ENTER, чтобы начать заново.'
   page.setAttribute('style', 'background-color: #f00;');
   document.addEventListener('keydown', evt => {
-    if (evt.key === 'Enter') {
-      location.reload();
-    }
+    if (evt.key === 'Enter') location.reload();
   });
 }
 
