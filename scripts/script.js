@@ -7,8 +7,6 @@ const ctx = canvas.getContext('2d');
 const ground = new Image();
 ground.src = './images/pink_ground.png';
 
-const background = 'pink';
-
 const food = new Image();
 food.src = './images/food.png';
 
@@ -114,10 +112,3 @@ document.addEventListener('keydown', changeDirection);
 
 let speed = 150;
 let game = setInterval(drawGame, speed);
-
-
-
-
-
-
-
